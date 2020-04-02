@@ -1,0 +1,147 @@
+#container {
+	width:780px;
+	height:882px;
+	margin:10px auto;
+	border:2px;
+	border-style: solid;
+	border-color: red;
+	border-width:thick;
+	margin-bottom: 10px;
+	}
+#header{
+	text-align: left;
+	margin: 0px;
+	/*float:left;*/
+	background-repeat: repeat-x;
+}
+#top{
+	width:776px;
+	height:75px;
+	padding-top: 1px;
+	padding-left: 2px;
+	margin-top:2px;
+	background-repeat: repeat-x;
+}
+#menu{
+	margin: 0px;
+	background-image: url(../img/navi_bar.gif);
+	padding: 0px;
+	list-style-type: none;
+	overflow: hidden;
+	text-decoration: none;
+}
+#menu  li{
+	float:left;
+}
+#menu a{
+	display:block;
+	padding:5px;
+	text-decoration: none;
+	text-align: center;
+	color:#FFE7BA;
+	font-size:12px;
+}
+
+#body1 a{
+	color:greenyellow;
+}
+
+#body1 a:visited{
+	color:darkred;
+}
+#body1 a:hover{
+	color:blue;
+}
+#body1{
+	width:776px;
+	height:150px;
+	margin:10px auto;
+	border:2px;
+	border-style:dashed;
+	border-color:#FFE7BA;
+	overflow: hidden;
+	margin: 1px;
+}
+#body2{
+	width:776px;
+	height:325px;
+	margin:10px auto;
+	border:2px;
+	border-style: dashed;
+	border-color: #FFE7BA;
+	overflow: hidden;
+	margin: 1px;
+	color:#5D478B;
+}
+
+#foot{
+	width:776px;
+	height:100px;
+	margin:10px auto;
+	border:2px;
+	border-style: solid;
+	border-color:aqua;
+	background-color: #CCCCCC;
+	overflow: hidden;
+	margin: 1px;
+	text-align: center;
+	font-size:14px;
+	color:#836FFF;
+}
+table{
+	text-align: left;
+	vertical-align:top;
+	color:#5D478B;
+	width:774px;
+	font-size: 16px;
+}
+font{
+	font-size:16px;
+	color:#836FFF;
+} 
+#body1 a{
+	text-decoration: none;
+}
+#juli{
+	margin:1px 4px ;
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrap{
+	height:185px;
+	width:780px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	/*border: 2px solid red;
+	border-width:thick;*/
+}
+.wrap ul{
+	position: absolute;
+}
+.wrap ul li{
+	height:185px;
+}
+.wrap ol{
+	position: absolute;
+	right:10px;
+	bottom:10px;
+}
+.wrap ol li{
+	height:20px;
+	width:20px;
+	background-color: #fff;
+	border: 1px solid #eee;
+	margin-left: 10px;
+	float:left;
+	line-height: 20px;
+	text-align: center;
+}
+.wrap ol li.active{
+	background-color: #330099;
+	color:#fff;
+	border: 2px solid green;
+}

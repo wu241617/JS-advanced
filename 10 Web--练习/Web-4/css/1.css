@@ -1,0 +1,68 @@
+#id0{
+	width:2008px;
+	height:1208px;
+	border:1px solid greenyellow;
+	border-width: thick;
+	margin: 20px auto;
+}
+#id1{
+	width:1000px;
+	height:600px;
+	background-color:black;
+	border:1px solid white;
+	text-align: center;
+	font-size:6em;
+	float:left;
+	font-family: "楷体";
+	padding-top:280px;
+}
+#id1 a:link{
+	text-decoration: none;
+	color:hotpink;
+}
+#id2{
+	width:1000px;
+	height:600px;
+	background-color:hotpink;
+	border:1px solid white;
+	text-align: center;
+	font-size:6em;
+	float:right;
+	font-family: "楷体";
+	padding-top:280px;
+}
+#id2 a:link{
+	text-decoration: none;
+	color:black;
+}
+#id3{
+	width:1000px;
+	height:600px;
+	background-color:orangered;
+	border:1px solid white;
+	text-align: center;
+	font-size:6em;
+	clear:both;
+	float:left;
+	font-family: "楷体";
+	padding-top:280px;
+}
+#id3 a:link{
+	text-decoration: none;
+	color:blue;
+}
+#id4{
+	width:1000px;
+	height:600px;
+	background-color:blue;
+	border:1px solid white;
+	text-align: center;
+	font-size:6em;
+	float:right;
+	font-family: "楷体";
+	padding-top:280px;
+}
+#id4 a:link{
+	text-decoration: none;
+	color:red;
+}

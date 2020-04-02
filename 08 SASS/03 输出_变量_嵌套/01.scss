@@ -1,0 +1,24 @@
+//SASS的变量
+$fontSize:20px;
+div{
+	font-size:$fontSize;
+}
+
+//SASS的嵌套
+.box{
+	padding-left:10px;
+	padding-top:10px;
+	
+	.pic{
+		padding:10px;
+		border:1px solid red;
+		
+		.img{
+			width:100px;
+			height:100px;
+		}
+	}
+}
+
+//SASS导入
+@import "common";

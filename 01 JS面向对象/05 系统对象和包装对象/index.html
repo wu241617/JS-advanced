@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>系统对象和包装对象</title>
+	</head>
+	<body>
+		<h2>系统对象</h2>
+		<p>javascript语言本身就是基于面向对象程序的，最大的对象是window对象，内置了很多系统对象：时间，数组，正则。</p>
+		<hr>
+		<h2>包装对象</h2>
+		<p>基本类型，如字符串，数字，布尔值等都具备对应的包装对象。可以通过包装对象来获取属性和方法。</p>
+		<hr>
+		
+		<script>
+			console.log(window);
+			var date = new Date();
+			
+			var arr = new Array(1,2,3,4,5);
+			arr.reverse();
+			console.log(arr);
+			
+			var str = " wuhao ";//new String()-->包装函数上的原型
+			console.log(str.trim());
+		</script>
+	</body>
+</html>

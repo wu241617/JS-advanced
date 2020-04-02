@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<h3 class="text-left text-primary">前端开发的演变:</h3>
+				<div class="col-md-12">
+					<div class="col-md-6">
+						<h4 class="text-left text-primary">1,静态网页阶段</h4>
+						    这个阶段的网页没有数据交互，所有的前端数据都由后端生成、维护，前端只负责纯粹的展示功能。
+							如果需要更新页面内容，必须重新加载整个网页。
+						    带来的问题是：当我们只希望更新页面中一小部分的内容时，会因为重载网页而对页面中的所有资源也重新加载一遍，
+							不仅用户体验不友好，还增加了服务器的负担。
+					</div>
+					<div class="col-md-6">
+						<h4 class="text-left text-primary">2,Ajax 阶段</h4>
+						    为了解决上述问题，在 2004 年诞生了 Ajax 技术，让页面的局部刷新成为了可能，从而改变了前端开发，
+							使得前端不仅仅是展示页面，还可以管理数据并与用户互动。
+						    Ajax 技术指的是脚本独立向服务器请求数据，拿到数据以后，进行处理并更新网页。整个过程中，
+							后端只是负责提供数据，其他事情都由前端处理，实现了 "获取数据 → 处理数据 → 展示数据" 的完整业务逻辑
+					</div>
+				</div>
+				
+				<div>
+					<h3 class="text-primary">Ajax简介</h3>
+					<p>
+						Ajax 的全称是 Asynchronous JavaScript and XML（异步的 JavaScript 和 XML），是一种用于创建动态网页的技术。<br>
+						Ajax 是一种使用现有标准的新方法，通过与服务器进行少量的数据交换，<br>
+						Ajax 可以使网页实现异步更新，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。<br>
+						Ajax 可以提高系统性能，优化用户界面。很多框架以及代码库已将 Ajax 作为其必不可少的一个重要模块。
+					</p>
+				</div>
+				
+			</div>
+			
+			<div>
+				<h3 class="text-primary">Ajax 工作原理：</h3>
+				在客户端（如浏览器）和服务器之间加了一个中间层：Ajax 引擎。由 Ajax 引擎独立向服务器请求数据，
+				前端获取到 Ajax 返回的数据后，可以使用新数据来更新页面、或进行其它操作，使用户请求和服务器响应异步化，
+				从而保证了在不刷新页面的前提下可以局部更新网页内容。<br>
+				<img src="img/pic-1.png" class="img-responsive img-thumbnail" alt="图片加载失败!">
+				<p>
+					<h3 class="text-primary">Ajax 使用示例</h3>
+					合理的利用 Ajax 技术，可以创建出交互丰富的动态式网页，让用户操作起来更加流畅，较为典型的应用有：<br>
+					
+					1,按需获取数据，最大限度地减少冗余请求及响应对服务器造成的负担；<br>
+					2,实时验证表单的某条数据，无需等到提交整个表单时再验证；<br>
+					3,页面无刷新更新，更好的响应用户；
+				</p>
+			</div>
+			
+		    <div>
+				<h3 class="text-primary">Ajax 的优缺点</h3>
+				<table class="table table-striped">
+					<caption>Ajax 的优缺点</caption>
+					<thead>
+						<tr>
+							<th>1,Ajax 的优点：</th>
+							<th>2,Ajax 的缺点：</th>
+						</tr>
+						
+					</thead>
+					<tbody>
+						<tr>
+							<td>最大的优点是页面无刷新更新，用户的体验非常好；</td>
+							<td>Ajax 不支持浏览器 back 返回按钮；</td>
+						</tr>
+						<tr>
+							<td>使用异步方式与服务器通信，具有更迅速的响应能力；</td>
+							<td>有安全问题，Ajax 暴露了与服务器交互的细节；</td>
+						</tr>
+						<tr>
+							<td>可以将一些服务器工作转移到客户端，利用客户端资源来处理，减轻服务器和带宽的压力，节约空间和带宽租用成本；</td>
+							<td>对搜索引擎不友好；</td>
+						</tr>
+						<tr>
+							<td>技术标准化，并被浏览器广泛支持，不需要下载插件或者小程序；</td>
+							<td>破坏了程序的异常机制；</td>
+						</tr>
+						<tr>
+							<td>Ajax 可使因特网应用程序更小、更快、更友好。</td>
+							<td>不容易调试</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+		
+		<script>
+			function ajaxRequest () {
+			    // 实例一个XMLHttpRequest对象
+			    var xhr = new XMLHttpRequest();
+			    // open方法规定请求的类型、URL 以及是否异步处理请求。
+			    xhr.open("GET", "https://www.w3cschool.cn/statics/demosource/ajax_info.txt", true);
+			    // send将请求发送给服务器,需要与open一起使用
+			    xhr.send();
+			    // 在 onreadystatechange 事件中，我们规定当服务器响应已做好被处理的准备时所执行的任务
+			    xhr.onreadystatechange = function(){
+			        // 当 readyState 等于 4 且状态为 200 时，表示响应已就绪
+			        if (xhr.readyState === 4 && xhr.status === 200) {
+			            document.getElementById("view").innerHTML = xhr.responseText;
+			        }                
+			    }
+			}
+		</script>
+	</body>
+</html>

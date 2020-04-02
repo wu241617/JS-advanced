@@ -1,0 +1,712 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	background-color: cadetblue;
+}
+
+/*==============================index.html=======================*/
+/*==================================index.html-->left-side=========================*/
+#left-side {
+	margin: 0;
+	padding: 0;
+	width: 22%;
+	height: 100%;
+	position: fixed;
+	background: #5f6d7e;
+	float: left;
+}
+
+#div0 {
+	margin: 0;
+	padding: 0;
+	width: 99%;
+	height: 20%;
+	border: 2px solid black;
+	border-bottom: 0;
+	border-right: none;
+	background-image: url(../img/2.jpg);
+	overflow: hidden;
+}
+
+#item {
+	text-align: center;
+	color: black;
+	font-size: 3.5em;
+	font-family: 幼圆;
+	margin-top: 10%;
+	padding: 0;
+}
+
+#menu {
+	text-align: center;
+	margin: 2% auto;
+	padding: 0;
+}
+
+.menu-1 {
+	width: 100%;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	background-color: cadetblue;
+	border: 1px solid black;
+	border-radius: 50px;
+}
+
+#menu li {
+	list-style-type: none;
+	margin: 20px;
+}
+
+#menu li a {
+	display: block;
+	height: 40px;
+	text-decoration: none;
+	font-size: 1.2em;
+	line-height: 40px;
+	font-family: 黑体;
+	color: black;
+	border: 1px solid black;
+	border-radius: 50px;
+}
+
+#menu li a:hover {
+	background-color: red;
+	color: white;
+}
+
+#menu1 {
+	text-align: center;
+	margin: 6% auto;
+	padding: 0;
+	display: block;
+}
+
+#menu1 li {
+	list-style-type: none;
+	margin: 10px;
+	float: left;
+}
+
+#menu1 li:nth-child(1) {
+	margin-left: 50px;
+}
+
+#menu1 li a {
+	display: block;
+	text-decoration: none;
+	font-size: 0.7em;
+	font-family: 黑体;
+	color: white;
+}
+
+#menu1 li a:hover {
+	background-color: red;
+	color: white;
+}
+
+#tel {
+	text-align: center;
+	text-decoration: none;
+	font-size: 0.7em;
+	font-family: 黑体;
+	color: white;
+}
+
+.wrap {
+	height: 200px;
+	width: 92%;
+	margin: 25px 25px 0px 25px;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	border: 2px solid black;
+}
+
+#index-lunbo {
+	height: 200px;
+	float: left;
+}
+
+.wrap ul {
+	position: relative;
+}
+
+.wrap ul li {
+	height: 200px;
+}
+
+.wrap ol {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+.wrap ol li {
+	height: 20px;
+	width: 20px;
+	background-color: #fff;
+	border: 2px solid #eee;
+	margin-left: 10px;
+	float: left;
+	line-height: 20px;
+	text-align: center;
+}
+
+.wrap ol li.active {
+	background-color: #330099;
+	color: #fff;
+	border: 2px solid green;
+}
+
+
+/*=====================index.html-->right-body========================*/
+#right-body {
+	margin: 0;
+	padding: 0;
+	width: 78%;
+	height: 100%;
+	float: right;
+}
+
+#index-div1 {
+	height: 550px;
+	weight: 100%;
+}
+
+
+#index-div2 {
+	margin: 0;
+	padding: 30px;
+	height: 610px;
+	weight: 100%;
+	font-size: 0.9em;
+	font-family: 宋体;
+	color: black;
+	text-indent: 50px;
+	word-spacing: 20px;
+	text-align: justify;
+	line-height: 40px;
+}
+
+#index-div3 {
+	margin: 0;
+	height: 620px;
+	weight: 100%;
+	font-size: 0.9em;
+	font-family: 宋体;
+	color: black;
+}
+
+.index-class1 {
+	width: 300px;
+	height: 30px;
+	text-align: center;
+	font-size: 0.6em;
+	font-family: 宋体;
+	color: black;
+}
+
+.index-class2 {
+	float: left;
+}
+
+.index-class3 {
+	border: 2px solid black;
+	margin: 50px 25px 25px 25px;
+	width: 300px;
+	height: 200px;
+	font-family: 宋体;
+	font-size: 1.2em;
+	text-align: center;
+	float: left;
+	font-weight: bold;
+}
+
+.index-class4 {
+	width: 330px;
+	height: 200px;
+}
+
+.index-class5 {
+	background-color: #E1E1E1;
+	width: 330px;
+	height: 36px;
+	border: 2px solid green;
+	color: black;
+}
+
+.index-class5 a {
+	display: block;
+	width: 330px;
+}
+
+.index-class5 a:hover {
+	background-color: cadetblue;
+}
+
+.index-class6 {
+	width: 100%;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	background-color: #E1E1E1;
+
+
+}
+
+.index-class7 {
+	width: 100%;
+	height: 200px;
+}
+
+#index-div4 {
+	margin: 0;
+	height: 760px;
+	weight: 100%;
+	font-size: 1.1em;
+	font-family: 宋体;
+	color: black;
+}
+
+#index-div5 {
+	width: 700px;
+	height: 300px;
+	float: right;
+	text-decoration: none;
+	margin-right: 50px;
+	padding: 0;
+}
+
+#index-div6 {
+	width: 700px;
+	height: 300px;
+	float: left;
+	text-decoration: none;
+	margin-left: 50px;
+	padding: 0;
+}
+
+#index-div7 {
+	width: 100%;
+	height: 300px;
+	float: left;
+	margin: 20px;
+}
+
+#index-div8 {
+	width: 100%;
+	height: 300px;
+	float: right;
+	margin: 20px;
+}
+
+#index-div5 ul li {
+	list-style: none;
+}
+
+#index-div6 ul li {
+	list-style: none;
+}
+
+#index-div0 {
+	margin-top: 30px;
+	padding: 0;
+	width: 100%;
+	height: 45px;
+	color: white;
+	font-size: 1em;
+	font-family: 幼圆;
+	text-align: center;
+	font-style: italic;
+}
+
+
+
+
+/*===========================================zhuce.html-->right-body================================*/
+.img-1 {
+	width: 100%;
+	height: 128px;
+	margin: 0;
+	padding: 0;
+	border-bottom: 2px solid black;
+	background-image: url(../img/3.jpg);
+	overflow: hidden;
+	background-repeat: repeat;
+
+}
+
+
+
+#div1 {
+	border: 2px;
+	border-top-style: dashed;
+	border-top-color: black;
+	color: red;
+	width: 100%;
+	height: 250px;
+	padding-top: 50px;
+	padding-left: 80px;
+	font-family: 宋体;
+	font-size: 1.2em;
+}
+
+#div2 {
+	border: 2px;
+	border-top-style: dashed;
+	border-top-color: black;
+	color: red;
+	width: auto;
+	height: 350px;
+	padding-top: 50px;
+	padding-left: 80px;
+	font-family: 宋体;
+	font-size: 1.2em;
+}
+
+#div3 {
+	width: auto;
+	height: 80px;
+	background-color: #5f6d7e;
+	margin-top: 100px;
+	padding-top: 30px;
+	text-align: center;
+	color: white;
+	font-size: 1.1em;
+	padding-top: 10px;
+	font-family: 黑体;
+}
+
+.class1 {
+	color: black;
+	font-size: 1.2em;
+}
+
+img {
+	width: 50px;
+	height: 25px;
+}
+
+.error {
+	color: red;
+	border: 1px solid red;
+	text-align: center;
+	background-color: #FFE4E1;
+	font-size: 1em;
+}
+
+.right {
+	color: green;
+	border: 1px solid green;
+	text-align: center;
+	background-color: #90EE90;
+	font-size: 1em;
+}
+
+input,
+img {
+	vertical-align: middle;
+}
+
+label {
+	float: left;
+	width: 15em;
+	margin-right: 2em;
+	text-align: right;
+}
+
+#fw {
+	color: black;
+	overflow: hidden;
+	text-align: center;
+}
+
+.zhuce-class1 {
+	font-size: 1.2em;
+}
+
+/* ===============================denglu.html-->right-body=================================== */
+#denglu-div {
+	width: auto;
+	height: 745px;
+}
+
+
+#denglu-div1 {
+	height: 550px;
+	width: 600px;
+	margin: 80px auto;
+	border: 2px solid black;
+	text-align: center;
+	font-size: 1.1em;
+	font-family: 宋体;
+	font-weight: bold;
+	background-color: rgba(83, 83, 83, .5);
+
+}
+
+#icon {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 2px solid red;
+	border-radius: 50%;
+	background-image: url(../img/7.jpg);
+	cursor: pointer;
+}
+
+#denglu-div2 {
+	height: 745px;
+	width: auto;
+	overflow: hidden;
+	background-image: url(../img/6.jpg);
+}
+
+#denglu-div3 {
+	clear: both;
+	width: auto;
+	height: 35px;
+	padding-top: 30px;
+	margin: 0;
+	background-color: #5f6d7e;
+	text-align: center;
+	color: white;
+	font-size: 0.9em;
+	padding-top: 10px;
+	font-family: 黑体;
+}
+
+#denglu-account1,
+#denglu-password1 {
+	font-size: 0.8em;
+}
+
+#denglu,
+#Exit {
+	font-size: 0.85em;
+	font-family: 宋体;
+	background-color: #5F6D7E;
+	color: white;
+	border: 2px solid black;
+	cursor: pointer;
+}
+
+.denglu-class1 {
+	font-size: 1.3em;
+	font-family: 幼圆;
+	color: black;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+
+/* ================================contact.html-->right-body ======================================*/
+#contact-div1 {
+	width: auto;
+	height: 825px;
+	border: 2px solid black;
+	margin: 0;
+	padding-left: 0;
+}
+
+#contact-div4 {
+	width: auto;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#contact-div2 {
+	width: 550px;
+	margin: 0;
+	padding-left: 50px;
+	padding-right: 50px;
+	float: left;
+}
+
+#contact-div3 {
+	width: 450px;
+	margin: 0;
+	padding-left: 50px;
+	border-left: 1px solid black;
+	float: right;
+
+}
+
+#contact-ul1 li {
+	text-align: left;
+	text-decoration: none;
+	list-style: none;
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family: 宋体;
+}
+
+#contact-ul1 li .contact-class1 {
+	font-size: 1em;
+	font-family: 宋体;
+	border: 2px solid black;
+	background-color: #5F6D7E;
+	color: white;
+}
+
+.contact-class2 {
+	font-size: 0.8em;
+}
+
+
+/* =======================================list.html -->right-body=================================== */
+.list-class1 {
+	width: 360px;
+	height: 200px;
+}
+
+#list-div1,
+#list-div2,
+#list-div3,
+#list-div5,
+#list-div6 {
+	margin: 20px 0px;
+	padding: 0px 30px;
+	float: left;
+}
+
+.list-class2 {
+	clear: both;
+	margin-top: 20px;
+	padding-left: 30px;
+	font-size: 1.2em;
+	font-family: 宋体;
+	color: black;
+	height: 200px;
+}
+
+.list-class3 {
+	text-indent: 40px;
+	word-spacing: 35px;
+}
+
+#list-div4 {
+	clear: both;
+	height: 60px;
+	margin: 20px 0px;
+	padding-top: 20px;
+	font-size: 0.9em;
+	font-family: 宋体;
+	color: black;
+	border-top: 1px solid black;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+/* ==============================================about.html-->right-body============================ */
+#about-div1 {
+	height: 2450px;
+	font-size: 1.2em;
+	font-family: 宋体;
+	padding: 20px;
+	line-height: 40px;
+}
+
+#about-div2,
+#about-div3 {
+	float: left;
+	font-size: 1em;
+	font-family: 宋体;
+	margin-left: 160px;
+}
+
+#about-div1 #about-div4 {
+	font-size: 1em;
+	font-family: 宋体;
+	margin-left: 100px;
+}
+
+.about-class1 {
+	text-align: center;
+	font-size: 0.9em;
+}
+
+.about-class2 {
+	font-size: 1.2em;
+	color: black;
+	font-family: 宋体;
+}
+
+.about-class3 {
+	text-indent: 50px;
+	spacing: 20px;
+	padding: 0px 30px;
+	font-size: 0.9em;
+	text-align: justify;
+}
+
+.about-class4 {
+	font-size: 0.85em;
+}
+
+
+/* =========================================show.html-->right-body ===========================*/
+
+.show-class1 {
+	width: 330px;
+	height: 200px;
+}
+
+.show-class2 {
+	border: 2px solid black;
+	margin: 25px;
+	width: 330px;
+	height: 200px;
+	font-family: 宋体;
+	font-size: 1.1em;
+	text-align: center;
+	float: left;
+	font-weight: bold;
+}
+
+.show-class3 {
+	width: 100%;
+	height: 40px;
+	border-bottom: 1px solid black;
+	font-size: 1.2em;
+	font-family: 宋体;
+	font-weight: bold;
+	color: black;
+}
+
+.show-class4 {
+	width: 530px;
+	height: 340px;
+	margin-bottom: 100px;
+}
+
+.show-class5 {
+	clear: both;
+	height: 80px;
+	margin: 0;
+	padding-top: 50px;
+	font-size: 0.9em;
+	font-family: 宋体;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}

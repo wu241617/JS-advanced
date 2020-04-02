@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h3 class="text-center text-primary">封装 GET 异步请求函数</h3>
+			
+			<pre>
+				&lt;script&gt;
+				 function ajaxGet (url, data, success, error) {
+				      var xhr = new XMLHttpRequest();
+					  
+					  xhr.onreadystatechange = function(){
+					  	if (xhr.readyState !== 4) return;    // 如果http响应不成功直接返回
+					  	    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+					  	        // 获取到响应数据，可执行一些请求成功的回调函数
+								alert( success);
+					  	    }else {
+					              alert( error);
+					          }
+					  };
+					   
+					   xhr.open("GET","url",true);
+					   
+					   xhr.send();
+				 }
+				
+				&lt;/script&gt;
+			</pre>
+		</div>
+		
+	</body>
+</html>

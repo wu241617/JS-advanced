@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>designPattern_观察者</title>
+		<style type = "text/css"></style>
+		
+	</head>
+	<body>
+		<button>fist Blood</button>
+		<button>double Kill</button>
+		<script type = "text/javascript">
+			/*
+			 设计模式-->观察者模式 
+			*/
+		   function Message(){//观察者类的创建
+			   this._list = [];//存储英雄
+			   this.msg = "hello";//发布的默认信息
+		   }
+		   
+		   Message.prototype.attach = function(hero){//英雄注册添加
+			   this._list.push(hero);
+		   }
+		   
+		   Message.prototype.notify = function(){//每个英雄通知更新信息
+			   for(var i = 0;i < this._list.length; i++){
+				   this._list[i].update();
+			   }
+		   }
+		   
+		   Message.prototype.setState = function(msg){//信息的设置
+			   this.msg = msg;
+			   this.notify();//调用相应函数输入对应结果
+		   }
+		   Message.prototype.getState = function(){//信息的获得
+		   		return this.msg ;	   
+		   }
+		   
+		   function Hero(name,msg){//英雄类的创建
+			   this.name = name;
+			   this.msg = msg;//Message对象
+		   }
+		   
+		   Hero.prototype.update = function(){//对应英雄信息的更新显示函数
+			   console.log(this.name + " received: " + this.msg.getState());
+		   }
+		   
+		   /* ======================test======================*/
+		   var msg = new Message();//新建一个观察者对象
+		   
+		   var hz = new Hero("黄忠",msg);//新建英雄
+		   var lb = new Hero("吕布",msg);
+		   var zy = new Hero("周瑜",msg);
+		   
+		   msg.attach(hz);//将英雄添加到观察者对象队列中去
+		   msg.attach(lb);
+		   msg.attach(zy);
+		   
+		   document.querySelector("button:first-of-type").onclick = function(){//给按钮添加事件点击函数
+			   msg.setState("first Blood");//设置信息，并调用相应函数输入对应结果
+		   }
+		   
+		   document.querySelector("button:last-of-type").onclick = function(){//给按钮添加事件点击函数
+		   	   msg.setState("double Kill");//设置信息，并调用相应函数输入对应结果
+		   }
+		</script>
+	</body>
+</html>

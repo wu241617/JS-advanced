@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h3 class="text-center text-primary bg-danger">open 指定请求</h3>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					open 指定请求
+				</div>
+				<div class="panel-body">
+					创建 XMLHttpRequest 对象之后，发起 HTTP 请求的下一步是调用 XMLHttpRequest 对象的open方法，
+					指定 HTTP 请求的两个必需部分：请求方法 和 URL <br>
+					// 其中请求方法为大写 xhr.open("GET", "/statics/demosource/demo_get_json.php");<br>
+					<p>
+						<ul class="list-group"></ul>
+						<li class="list-group-item">解析：xhr.open(method, url, async)</li>
+						<li class="list-group-item">
+						method：
+						第一个参数用于指定 HTTP 请求的方法，不区分大小写；
+						该参数可取的值包括："GET"、"POST"、"HEAD"、"PUT"、"OPTIONS"、"DELETE"，其中，"GET" 和 "POST"
+						 是得到广泛支持的请求方法；
+						</li>
+						<li class="list-group-item">
+						url：
+						第二个参数用于指定 HTTP 请求的 URL 地址，可以是 绝对URL 或 相对URL；
+						绝对URL：需要满足 "同源策略"（服务器明确允许跨域请求的情况除外）；
+						相对URL：即相对于文档的 URL；
+						</li>
+						<li class="list-group-item">
+						async：
+						第三个参数是可选的，可用布尔值指定脚本是否以异步的方式调用此次 Ajax 请求；
+						该参数默认为 true，表示异步调用此次 Ajax 请求，不阻塞后续脚本的执行；
+						</li>
+					</p>
+				</div>
+				<div class="panel-footer">
+					<ul class="list-group">
+						<li class="list-group-item">提示：</li>
+						<li class="list-group-item">
+							允许脚本以异步的方式发起 Ajax 请求，是XMLHttpRequest技术的一个重要特性，
+						    可避免发生因网速慢等原因导致脚本代码阻塞、页面卡死现象；
+						</li>
+						<li class="list-group-item">
+							open()方法其实还可以有第四、第五个参数，分别是用于 HTTP 请求访问认证的用户名和密码，
+							使用它们需要在服务器做相应的配置，较为少用。
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			
+			<div>
+				<h3 class="text-primary">setRequestHeader 设置请求头</h3>
+				如果你的 HTTP 请求需要设置请求头，那么调用 open 方法之后的下个步骤就是设置它，使用的方法是：setRequestHeader
+				<br><b>xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");</b><br>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						示例：POST 请求设置 "Content-Type" 头来指定请求主体的编码格式<br>
+						
+						<per>
+							&lt;script &gt;
+							var xhr = new XMLHttpRequest();
+							xhr.open("POST", "/statics/demosource/demo_post_json.php");
+							
+							// 在 open 方法之后设置请求头
+							xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+							&lt;/script &gt;
+						</per>
+						<p style="padding:20px o;background-color:pink; color:blue;">
+							解析：xhr.setRequestHeader(name, value)-->name：请求头名称；value：请求头的值。 <br>
+							
+							说明：
+							如果对相同的头调用setRequestHeader多次，新值不会取代之前指定的值，
+							相反，HTTP 请求将包含这个头的多个副本或将这个头指定多个值；
+							你不能自己指定 "Content-Length"、"Date"、"Referer" 或 "User-Agent" 头，
+							XMLHttpRequest将自动添加这些头而防止伪造它们。类似地，XMLHttpRequest对象还会自动处理 cookie、链接时间、
+							字符集和编码判断，所以你无法使用setRequestHeader方法设置它们。<br>
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div>
+				<h3 class="text-primary">send 发送请求主体</h3>
+				使用 XMLHttpRequest 发起 HTTP 请求的最后一步是指定可选的请求主体、并向服务器发送它，使用的方法是：send <br>
+				<table class="table table-hover">
+					<caption>send 发送请求主体</caption>
+					<thead>
+					   <tr>
+						   <th>GET 请求</th>
+						   <th>POST 请求</th>
+					   </tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>var xhr = new XMLHttpRequest();xhr.open("GET", "/statics/demosource/demo_get_json.php");</td>
+							<td>
+								var xhr = new XMLHttpRequest(); xhr.open("POST", "/statics/demosource/demo_post_json.php");
+							</td>
+						</tr>
+						<tr>
+							<td>// 无请求主体xhr.send(null);</td>
+						    <td>// 把 msg 作为请求主体发送xhr.send(msg);</td>
+						</tr>
+						<tr>
+							<td>代码解析：由于 GET 请求 绝对 没有请求主体，所以在调用 send 方法时可以传递 null 或 省略这个参数；</td>
+							<td>
+								代码解析:POST 请求通常都拥有请求主体，<b>可在 send 方法中指定它；
+				                POST 请求的请求主体，应该匹配setRequestHeader方法所指定的 "Content-Type" 头。</b>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

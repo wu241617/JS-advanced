@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>面向对象相关的语法</title>
+	</head>
+	<body>
+		<h2>constructor</h2>
+		<p>原型对象下唯一自带默认的属性，用于查看对象的构造函数。</p>
+		<hr>
+		
+		<h2>instanceof</h2>
+		<p>左边实例对象，右边构造函数；它会检查右边构造函数的原型对象，是否在左边对象的原型链上。</p>
+		<hr>
+		
+		<h2>in和for...in</h2>
+		<p>in运算符，返回一个布尔值，表示一个对象是否具有某个属性。for...in循环可获得对象的所有可枚举属性。</p>
+		<hr>
+		
+		<script>
+			function Foo(){
+				this.name = "wuhao";
+				this.age = 23;
+			}
+			//Foo.prototype.constructor = Foo;
+			var obj = new Foo();
+			console.log(obj.constructor);//-->Foo
+			
+			console.log(obj instanceof Foo);//-->true
+			
+			console.log("name" in obj);//-->true
+			console.log("stuno" in obj);//-->false
+			
+		</script>
+	</body>
+</html>

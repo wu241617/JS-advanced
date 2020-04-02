@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 原型和原型链</title>
+	</head>
+	<body>
+		<h2>原型</h2>
+		<p>在构造函数下面有一个<b>prtototype属性叫做原型</b> ，<b>构造函数+原型，整体也是一个对象，叫做原型对象</b>，在原型对象下面可以添加属性和方法</p>
+		<hr>
+		<h2>共享</h2>
+		<p>在原型下的属性和方法，可供多个对象进行共享访问，这样可以节省内存消耗</p>
+		<hr>
+		<h2>原型链</h2>
+		<p>连接对象和原型对象之间的纽带;原型链最外层为object.prototype，可以通过控制台来查看</p>
+		<p>__proto__:内部属性-->当前对象对应的原型对象</p>
+		<hr>
+		<script>
+	      function Foo(name){
+			  this.name = name;
+		  }
+		  Foo.prototype.showName = function(){
+			  console.log(this.name);
+		  };
+		  
+		  var obj1 = new Foo("wuhao");
+		  var obj2 = new Foo("wangwenyan");
+		  console.log(obj1.showName == obj2.showName);
+		  
+		  console.log(obj1.__proto__ == Foo.prototype);
+		  console.log(Foo.prototype.__proto__ == Object.prototype);
+		  
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<h3 class="text-center " style="background-color:black; color:white;padding:20px 0;">同源策略</h3>
+				
+				<div class="panel panel-default  text-danger">
+					<div class="panel-heading">什么是同源策略?</div>
+					<div class="panel-body">
+						同源策略是一种安全协议，是客户端脚本（尤其是 JavaScript）中重要的安全度量标准，
+						指一段脚本只能读取同一来源的窗口和文档的属性。划重点：何为同源？
+						同源指的是 URL 地址中的 协议、域名、端口三者都相同。
+					</div>
+				</div>
+				
+				<ul class="list-group">
+					<li class="list-group-item">一个 URL 地址可以有以下几个组成部分：scheme: //host:post/path?query#fragment</li>
+					<li class="list-group-item"> scheme：通信协议，一般为 http 、https；</li>
+					<li class="list-group-item">host：域名；</li>
+					<li class="list-group-item"> post：端口号，此项为可选项，http 协议默认的端口号为 80，https 协议默认的端口号为 443；</li>
+					<li class="list-group-item"> path：路径，由 "/ "隔开的字符串；</li>
+					<li class="list-group-item">? query：查询参数，此项为可选项；</li>
+					<li class="list-group-item">fragment：信息片段，用于指定网络资源中的某片断，此项为可选项；</li>
+				</ul>
+				
+				<div class="panel panel-default text-danger">
+					<div class="panel-heading">
+						为什么要有同源策略?
+					</div>
+					<div class="panel-body">
+						我们在使用 Ajax 请求后端数据时，只能跟同源的后端接口进行数据交互，
+						即：后端接口的 URL 与发起 Ajax 请求的页面 URL 之间，需要满足同源策略。
+						为了数据的安全性。若没有同源策略的限制，那么黑客就可以在他的页面上任意请求你的后端数据，
+						造成数据库内容被盗取、隐私数据泄漏。
+					</div>
+				</div>
+			</div>
+			
+			<div>
+				
+				<h3 class="text-primary">实现跨域请求的方法:</h3>
+				<p>
+					虽然 Ajax 请求需要满足同源策略，然而在一些场景中，你真的需要 Ajax 访问其它 "源" 的数据（称为跨域访问），
+					这时需要后端服务器进行相应的设置。如果服务器端支持 CORS，可以通过设置Access-Control-Allow-Origin来实现跨域。
+					如果浏览器检测到相应的设置，就会允许 Ajax 进行跨域访问。
+				</p>
+				<ul class="list-group">
+					<li class="list-group-item">扩展：解决跨域问题的其它方式</li>
+					<li class="list-group-item">JSONP 技术；</li>
+					<li class="list-group-item">在服务端设置代理模块；</li>
+					<li class="list-group-item">通过修改 window.name 实现跨域；</li>
+					<li class="list-group-item">使用 HTML5 中新引进的 window.postMessage 方法来跨域传送数据；
+					等...</li>
+				</ul>
+				
+			</div>
+		</div>
+		
+	</body>
+</html>

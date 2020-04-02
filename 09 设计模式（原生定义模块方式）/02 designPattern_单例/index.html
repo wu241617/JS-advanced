@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>设计模式-单例模式</title>
+		<style type = "text/css"></style>
+		
+	</head>
+	<body>
+		
+		<script type = "text/javascript">
+			/* 
+			设计模式-单例模式 
+			-->判断是否存在唯一一个实例，存在则返回已经存在的一个实例，不存在则创建唯一一个新的实例;
+			   整个过程下来只有一个实例对象的产生
+			*/
+			function DarkMaster(){
+				if(!DarkMaster._instance){
+					DarkMaster._instance = {
+						count:30,
+						saySth:function(){
+							
+						},
+						countDown:function(){
+							
+						},
+						show:function(){
+							
+						},
+						dead:function(){
+							this.countDown();
+						}
+					}
+				}
+				return DarkMaster._instance;
+			}
+			
+			var play1 = new DarkMaster();
+			var play2 = new DarkMaster();
+			
+			alert(play1 === play2);
+		</script>
+	</body>
+</html>

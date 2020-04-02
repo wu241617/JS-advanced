@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+		<!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<h3 class="text-center text-primary">何时获取服务器的响应？</h3>
+				一个完整的 HTTP 响应由 <b>状态码、响应头和 响应主体 组成</b>，这三者都可以通过XMLHttpRequest对象提供的属性和方法获取。
+				<p>
+					为了能够在 HTTP 响应准备就绪时得到通知，必须监听XMLHttpRequest对象上的readystatechange事件。
+					但为了理解这个事件类型，需要先了解下readyState属性，因为该事件监听的是readyState属性值的改变。<br>
+					<h3 class="text-primary">readyState 属性</h3>
+					<ul class="list-group">
+						<li class="list-group-item">readyState属性是一个整数，它的值代表了不同的 HTTP 请求状态。</li>
+						<li class="list-group-item">readyState属性值的含义：</li>
+						<li class="list-group-item">0：初始值，表示请求未初始化，open方法尚未调用；</li>
+						<li class="list-group-item">1：启动请求，open 方法已经调用，但尚未调用 send 方法；</li>
+						<li class="list-group-item">2：请求发送，已经调用 send 方法，但尚未接收到响应；</li>
+						<li class="list-group-item">3：接收响应，已经接受到部分响应数据，主要是响应头；</li>
+						<li class="list-group-item">4：HTTP 响应完成，已经接收到全部响应数据，而且可以在客户端使</li>
+					</ul>
+					综上：每次readyState属性值的改变都会触发readystatechange事件，
+					但只有readyState属性值为 4 时才是我们所关心的状态，因为只有这个状态才表示 HTTP 的响应准备就绪，
+					可以真正意义上的结合服务器所响应的数据来实现我们的业务需求。<br>
+					<pre>
+						&lt;script &gt;
+						var xhr = new XMLHttpRequest();
+						
+						xhr.onreadystatechange = function () {
+						    if (xhr.readyState === 4) {
+						        // HTTP响应完成
+						    }
+						};
+						
+						xhr.open("GET", "/statics/demosource/demo_get_json.php");
+						xhr.send();
+						&lt;/script &gt;
+					</pre>
+					说明：
+					readyState的属性值只代表此时的 HTTP 请求处于哪个阶段：是发送了请求还是未发送请求，是只接收到了响应头还是响应完成；
+					"响应完成" 只代表 HTTP 请求结束，至于服务器的响应状态：是请求成功还是请求错误，又或者是服务器错误，
+					需要通过 HTTP 状态码判断，它存储在XMLhttpRequest的status属性上；<br>
+				</p>
+			</div>
+
+			<div>
+				<h3 class="text-primary">status 属性</h3>
+				status属性会以数字的形式保存服务器响应的 HTTP 状态码，诸如使用最频繁的 "200" 表示请求成功，
+				"404" 表示 URL 不能匹配服务器上的任何资源。<br>
+
+				<p>
+					<ul class="list-unstyled">
+						<li>HTTP 状态码是用来表示网页服务器响应状态的 3 位数字代码，所有状态码的第一个数字代表了响应的五种状态之一：</li>
+						<li>1xx：临时响应</li>
+						<li>2xx：成功</li>
+						<li>3xx：重定向</li>
+						<li>4xx：请求错误</li>
+						<li>5xx：服务器错误</li>
+						<li>
+							2开头的状态码 与 304。2开头的状态码都表示请求成功，而 304 是对客户端可读取缓存的一种响应，
+							同样能获取到 HTTP 的响应数据。
+						</li>
+					</ul>
+
+					<pre>
+						&lt;script&gt;
+						
+						var xhr = new XMLHttpRequest();
+						
+						xhr.onreadystatechange = function(){
+							if (xhr.readyState !== 4) return;    // 如果http响应不成功直接返回
+							    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+							        // 获取到响应数据，可执行一些请求成功的回调函数
+							    }else {
+                                    alert("请求失败，HTTP 状态码为：" + xhr.status);
+                                }
+						};
+						
+						xhr.open("GET","./url",true);
+						
+						xhr.send();
+					
+						&lt;/script&gt;
+					</pre>
+				</p>
+			</div>
+
+		</div>
+
+	</body>
+</html>

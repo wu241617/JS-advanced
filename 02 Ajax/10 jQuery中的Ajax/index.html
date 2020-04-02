@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h3 class="text-center text-primary">jQuery 中的 Ajax</h3>
+			jQuery 是一个 JavaScript 工具库，它封装了 JavaScript 常用的功能代码<br>
+			<ul class="list-group">
+				<li class="list-group-item">jQuery 中，Ajax 常见的请求方式有以下几种：</li>
+				<li class="list-group-item">$.ajax(url, options)</li>
+				<li class="list-group-item">$.get(url, data, callback, dataType)</li>
+				<li class="list-group-item">$.post(url, data, callback, dataType)</li>
+				<li class="list-group-item">$.getJSON(url, data, callback)</li>
+				<li class="list-group-item">$.getScript(url, callback)</li>
+				<li class="list-group-item">jQuery元素.load(url, data, callback)</li>
+			</ul>
+			<pre style="background-color:black; color:white;">
+				// 使用jQuery发起ajax请求
+				$.ajax("/statics/demosource/demo_get_json.php", {
+				    //请求类型
+				    type: "GET",
+				    //要发送的数据
+				    data: {
+				        country: country,
+				        city: city
+				    },
+				    //数据格式
+				    dataType: "json",
+				    //请求成功后执行
+				    success: function (res) {    // res为响应成功返回的数据
+				        oIpt_country.innerText = res.params.country;
+				        oIpt_city.innerText = res.params.city;
+				    },
+				    //请求失败后执行
+				    error: function (res) {    // 这里的res为响应失败返回的数据
+				        alert("请求失败：" + res.status);
+				    }
+					complete: function (xhr) {
+					
+					    // 不管是成功还是失败都是完成，都会执行这个 complete 函数
+					
+					    console.log('complete', xhr)
+					
+					  }
+				});
+			</pre>
+		</div>
+		
+		<div>
+			<h3 class="text-primary">Ajax 的替代品：fetch</h3>
+			Fetch API 是随 ES6 发展而出现的一个 JavaScript 原生接口，与 Ajax 一样允许开发者异步发起 HTTP 请求
+			，但却以更加简单明了的调用方式、基于 Promise 的数据处理方式被称作是 Ajax 的替代品。<br>
+			
+			<pre style="background-color:black; color:white;">
+				fetch("/statics/demosource/demo_json_data.php", {
+				    method: "POST",
+				    header: new Headers({"Content-Type" : "application/json"}),
+				    body: JSON.stringify(data)
+				})
+				.then(function (res) {
+				    return res.ok ? res.json() : Promise.reject(res);
+				})
+				.then(function (data) {
+				    oIpt_country.innerText = data.country;
+				    oIpt_city.innerText = data.city;
+				})
+				.catch(function (res) {
+				    alert("请求失败：" + res.status);
+				})
+			</pre>
+		</div>
+		
+	</body>
+</html>

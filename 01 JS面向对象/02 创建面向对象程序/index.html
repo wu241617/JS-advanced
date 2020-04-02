@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>创建面向对象程序</title>
+	</head>
+	<body>
+		<p>
+			1,在面向对象编程中，是通过类来创建对象的。类相当于摸具，根据传递的数据来创建对象，并且可以
+			重复的创建对象。<br><hr>
+			2,在ES6之前没有类的概念，不过可以利用构造函数来代替类进行创建对象。<br><hr>
+			3,构造函数和普通函数没有太大的区别，只是调用的时候需要通过new关键字来调用，构造函数
+			中的this会指向创建出来的对象，并且具备隐式返回操作。<br><hr>
+			4,定义类一般要求首字母大写，所有定义构造函数也要求首字母大写。<br><hr>
+		</p>
+		
+		<script>
+			function Student(name,age){//构造函数
+				this.name = name;
+				this.age = age;
+				this.showDate = function(){
+					console.log("name="+this.name);
+					console.log("age="+this.age);
+				}
+			}
+			
+			var student = new Student("wuhao",23);//调用构造函数声明对象
+			student.showDate();
+			
+		</script>
+	</body>
+</html>

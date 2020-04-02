@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户登录</title>
+		<link rel="stylesheet" href="css/css.css" type="text/css">
+		<script src="js/js.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="left-side">
+			<div id="div0"><p id="item">天水风景</p></div>
+			<div id="index-div0"></div>
+			<ul id="menu">
+				<li><div class="menu-1"><a href="index.html">网站首页</a></div></li>
+				<li><div class="menu-1"><a href="list.html">必玩景点</a></div></li>
+				<li><div class="menu-1"><a href="show.html">美景欣赏</a></div></li>
+				<li><div class="menu-1"><a href="about.html">天水印象</a></div></li>
+				<li><div class="menu-1"><a href="contact.html">旅客留言</a></div></li>
+				<li><div class="menu-1"><a href="zhuce.html">用户注册</a></div></li>
+				<li><div class="menu-1"><a href="denglu.html">用户登录</a></div></li>
+			</ul>
+			<ul id="menu1">
+				<li><a href="">设为首页</a></li>
+				<li><a href="">加入收藏</a></li>
+				<li id="tel">电话：400-000-0000</li>
+			</ul>
+		
+		</div>
+		<div id="right-body">
+			<div class="img-1" style="height:141px;"></div>
+			<div class="show-class3"  class="index-class6" style="background-color:#E1E1E1;">
+				&nbsp;当前位置:&nbsp;<a href="index.html">网站首页</a><span>&nbsp;--->&nbsp;</span><a href="denglu.html" >用户登录:</a></div>
+			<div id="denglu-div">
+				<!--div id="denglu-div1">
+					<p><b>用户登录<b /></p>
+				</div-->
+				<div id="denglu-div2">
+					<form id="denglu-div1">
+						<h1 >用户登录</h1>
+						<div id="icon"></div>
+						<br /><br>
+						账号：<input type="text" id="denglu-account" onblur="checkAccount();" />
+						<span id="denglu-account1"></span><br /><br>
+						<br />密码：<input type="password" id="denglu-password" onblur="checkPassword();" />
+						<span id="denglu-password1"></span><br /><br>
+						<br /><input type="checkbox" style="width:20px; height:20px;">&nbsp;自动登录</input>
+						&nbsp;&nbsp;<input type="checkbox" style="width:20px; height:20px;">&nbsp;记住密码</input>
+						<br /><br>
+						<br /><input type="button" name="longin" value="登录" id="denglu" onclick="checkDenglu();" />&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" name="exit" value="退出" id="Exit" onclick="checkExit();" /><br /><br>
+						<br /><a href="zhuce.html" class="denglu-class1">注册账号!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="#" class="denglu-class1">找回密码!</a>
+					</form>
+				</div>
+			</div>
+			<div id="denglu-div3" style="height:40px;font-size:0.9em;">
+				<p>魅力天水，陇上小江南。</p>
+			</div>
+		</div>
+	</body>
+</html>

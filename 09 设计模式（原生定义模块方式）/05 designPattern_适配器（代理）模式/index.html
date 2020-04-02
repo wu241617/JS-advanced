@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>designPattern_适配器（代理）模式</title>
+		<style type = "text/css"></style>
+		
+	</head>
+	<body>
+		<script type = "text/javascript">
+			/* 
+			设计模式-->适配器模式 
+			旧系统和新系统不一致时，可以用一个适配器匹配
+			*/
+		   function RenMa(){
+			   
+		   }
+		   RenMa.prototype.str_one = function(){
+			   console.log("人马--使用了技能【1】");
+		   }
+		   RenMa.prototype.str_two = function(){
+		   			   console.log("人马--使用了技能【2】");
+		   }
+		   RenMa.prototype.str_three = function(){
+		   			   console.log("人马--使用了技能【3】");
+		   }
+		   RenMa.prototype.str_four = function(){
+		   			   console.log("人马--使用了技能【4】");
+		   }
+		   
+		   function GuanYu(){
+			   this.s = new RenMa(); 
+		   }
+		   GuanYu.prototype.str_1 = function(){
+			   this.s.str_one();
+		   }
+		   GuanYu.prototype.str_2 = function(){
+		   		this.s.str_two();	   
+		   }
+		   GuanYu.prototype.str_3 = function(){
+		   		this.s.str_three();	   
+		   }
+		   GuanYu.prototype.str_4 = function(){
+		   		this.s.str_four();	   
+		   }
+		   
+		   /* ========================test====================*/
+		   var s = new GuanYu();
+		   s.str_1();
+		   s.str_2();
+		   s.str_3();
+		   s.str_4();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<h3 class="text-center text-primary bg-danger">XMLHttpRequest 类</h3>
+				<p>
+					Ajax 技术的核心是XMLHttpRequest类，简称 XHR，它允许脚本异步调用 HTTP API。
+					浏览器在XMLHttpRequest类上定义了 HTTP API，这个类的每个实例都表示一个 独立 的 请求/响应 对象，
+					并且这个实例对象上的属性和方法允许 指定细节 和 提取响应数据。
+					当然，既然XMLHttpRequest是个"类"，那么在使用时，必须做的第一件事就是实例化它：
+					//  变量xhr来表示这个实例:var xhr = new XMLHttpRequest();
+				</p>
+				
+			</div>
+			
+			<div>
+				<h3 class="text-primary">XMLHttpRequest 的兼容</h3>
+				
+				<p>
+					作为现有标准的新方法，绝大多数的浏览器都支持XMLHttpRequest。
+					但在 IE7 之前的版本（IE5、IE6）并不支持XMLHttpRequest()构造函数，它们需要使用ActiveX对象进行模拟：
+					var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				</p>
+			</div>
+			
+			<div>
+				<h3 class="text-primary">XMLHttpRequest的兼容写法可以是这样的：</h3>
+				<p class="text-info">
+					var xhr = window.XMLHttpRequest ? new window.XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+				</p>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

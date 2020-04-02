@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<h3 class="text-center text-primary">表单编码的 POST 请求</h3>
+				POST 请求一般用于修改服务器上的资源，它需要发送一个请求主体，客户端传递给服务器的数据就包含在这个请求主体中。<br>
+				POST 请求使用 表单编码 的方式来发送数据的关键步骤：<br>
+				1,对所需发送的数据（具有名称和值）执行普通的 URL 编码，即：像 GET 请求那样拼接为 名/值 对的形式；<br>
+				2,将"Content-Type"请求头的值设置为"application/x-www-form-urlencoded"。<br>
+				
+				<pre style="background-color:black;color:white;">
+					// 获取用户输入的表单数据
+					var country = document.getElementById("country").value,
+					    city = document.getElementById("city").value;
+					
+					// 将数据拼接为 名/值对 的形式
+					var query = "country=" + country + "&city=" + city;
+					
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function () {
+						if (xhr.readyState !== 4) return;    // 如果http响应不成功直接返回
+						    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+						        // 获取到响应数据，可执行一些请求成功的回调函数
+								alert( success);
+						    }else {
+						          alert( error);
+						      }
+					}
+					
+					// 指定 POST 请求
+					xhr.open("POST", "/statics/demosource/demo_post_json.php");
+					
+					// 设置请求主体的编码方法
+					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					
+					// 发送请求主体（数据）
+					xhr.send(query);
+				</pre>
+				
+			</div>
+			
+			<div>
+				<h3 class="text-center text-primary">JSON 编码的 POST 请求</h3>
+				JSON 是一种轻量级的前后端数据交换格式，直接使用JSON.stringify原生 API 即可实现 JSON 编码，比表单编码的方式更加快捷。<br>
+				POST 请求使用 JSON编码 的方式来发送数据的关键步骤：<br>
+				1,"Content-Type"请求头的值需要为"application/json"；<br>
+				2,对请求主体进行序列化，在 JavaScript 中可使用JSON.stringify完成这步操作。<br>
+				
+				<pre style="background-color:black; color:white;">
+					// 获取用户输入的表单数据
+					var country = document.getElementById("country").value,
+					    city = document.getElementById("city").value;
+					
+					// 将数据转换为 JavaScript 对象
+					var data = {
+					    country : country,
+					    city : city
+					}
+					
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function () {
+					    if (xhr.readyState !== 4) return;    // 如果http响应不成功直接返回
+					        if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+					            // 获取到响应数据，可执行一些请求成功的回调函数
+					    		alert( success);
+					        }else {
+					              alert( error);
+					          }
+					}
+					
+					// 指定 POST 请求
+					xhr.open("POST", "/statics/demosource/demo_json_data.php");
+					
+					// 设置请求主体的编码方法
+					xhr.setRequestHeader("Content-Type", "application/json");
+					
+					// 编码请求主体并发送
+					xhr.send(JSON.stringify(data));
+					
+
+				</pre>
+			</div>
+			
+			<div>
+				<h3 class="text-primary">GET请求 与 POST请求 对比</h3>
+				<ul class="list-group">
+					<li class="list-group-item">GET 请求：</li>
+					<li class="list-group-item">一般用于信息获取：通过发送一个请求来取得服务器上的资源；</li>
+					<li class="list-group-item">数据包含在 URL 地址中；</li>
+					<li class="list-group-item">数据量受 URL 的长度限制；</li>
+					<li class="list-group-item">不安全：浏览器的 URL 可以直接看到，明文传输；</li>
+					<li class="list-group-item">GET 请求会被缓存；</li>
+					<li class="list-group-item">GET 没有请求主体，请求速度相对较快。</li>
+				</ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<ul class="list-group">
+					<li class="list-group-item">POST 请求：</li>
+					<li class="list-group-item">
+				一般用于修改服务器上的资源：向指定资源提交数据，后端处理请求后往往会导致服务器 建立新的资源 或 修改已有资源；</li>
+					<li class="list-group-item">数据包含在请求主体中；</li>
+					<li class="list-group-item">没有数据量限制，可在服务器的配置里进行限制；</li>
+					<li class="list-group-item">只能是比 GET 安全，实际上也是不安全的：可通过开发者工具或者抓包看到，明文传输；</li>
+					<li class="list-group-item">POST 请求不会缓存；</li>
+					<li class="list-group-item">POST 相对稳定、可靠：可发送包含未知字符的内容。</li>
+				</ul>
+		
+				容易产生的误区：HTTP 协议里并没有限制 GET 和 POST 的长度，GET 的最大长度限制是因为浏览器和 
+				Web 服务器对 URL 的长度限制，不同的浏览器和 Web 服务器限制的最大长度不一样，它们所限制的是整个 URL 的长度
+				，而不仅仅是查询参数的数据长度。<br>
+				
+
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

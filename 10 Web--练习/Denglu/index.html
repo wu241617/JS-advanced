@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录网页</title>
+		<link rel="stylesheet" href="css/Denglu.css" type="text/css">
+		<script src="js/Denglu.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div>
+			<div id="div1">
+				<p><b>登录界面:<b /></p>
+			</div>
+			<div id="div2">
+				<form>
+					<br />
+					账号：<input type="text" id="account" onblur="checkAccount();" />
+					<span id="account1"></span><br />
+					<br />密码：<input type="password" id="password" onblur="checkPassword();" />
+					<span id="password1"></span><br />
+					<br /><input type="checkbox">自动登录</input>
+					&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox">记住密码</input>
+					<br />
+					<br /><input type="button" name="longin" value="登录" id="denglu" onclick="checkDenglu();" />&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button" name="exit" value="退出" id="Exit" onclick="checkExit();" /><br />
+					<br /><a href="../register/index.html">注册账号!&nbsp;&nbsp;&nbsp;&nbsp; <a href="">找回密码!</a>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

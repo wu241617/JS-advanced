@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h3 class="text-primary">responseText 属性</h3>
+			responseText属性以字符串的形式存储了响应主体，即：服务器的响应数据。
+			<h3 class="text-primary">响应 HTML 文本</h3>
+			<pre style="background-color:black; color:white;">
+				&lt;script &gt;
+				
+				var xhr = new XMLHttpRequest();
+				
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState !== 4) return;
+				    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+				        // 当响应成功，获取响应数据,将数据赋值给本地
+				        oView.innerHTML = xhr.responseText;
+				    }
+				};
+				
+				xhr.open("GET", "/statics/demosource/demo_get.php");
+				xhr.send();
+				
+				&lt;/script &gt;
+				
+			</pre>
+			
+			<h3 class="text-primary">响应 JSON 数据</h3>
+			<pre style="background-color:black; color:white;">
+				&lt;script &gt;
+				
+				var xhr = new XMLHttpRequest();
+				
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState !== 4) return;
+				    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+				        // 使用JSON.parse把 响应数据转换为json数据
+				        var res = JSON.parse(xhr.responseText);
+				        // 将响应数据中的date属性赋值给oTime做内容
+				        oTime.innerText = res.date;
+				    }
+				};
+				
+				xhr.open("GET", "/statics/demosource/demo_get.php");
+				xhr.send();
+				
+				&lt;/script &gt;
+				
+			</pre>
+			
+			
+			<div>
+				扩展：实际上，响应主体有时还可以从XMLHttpRequest对象的response、responseXML属性获取，它们的使用相对不频繁。<br>
+				1,responseText：无论返回的数据类型是什么，响应主体的内容都会保存在responseText属性中；<br>
+				2,responseXML：只对 XML 数据有效，若响应主体是非 XML 数据，该属性值为null；<br>
+				3,response：通常配合responseType使用。若指定了XMLHttpRequest实例的responseType属性，
+				则将响应内容转换为该属性所指定的格式并返回，否则按默认情况处理。<br>
+				
+				<pre style="background-color:black; color:white;">
+					&lt;script &gt;
+					
+					var xhr = new XMLHttpRequest();
+					
+					// 指定响应主体的数据格式为 json
+					xhr.responseType = "json";
+					
+					xhr.onreadystatechange = function () {
+					    if (xhr.readyState !== 4) return;
+					    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+					        oTime.innerText = xhr.response.date;
+					    }
+					};
+					
+					xhr.open("GET", "/statics/demosource/demo_get_json.php");
+					xhr.send();
+					
+					&lt;/script &gt;
+					
+				</pre>
+			</div>
+			
+			<div>
+				<h3 class="text-primary">查询 HTTP 响应头的方法</h3>
+				<p>
+					在XMLHttpRequest对象上，可通过getAllResponseHeaders和getResponseHeader方法查询响应头信息。
+					1,getAllResponseHeaders()-->  oView.innerText = xhr.getAllResponseHeaders(); <br>
+					2,getResponseHeader(headerName)-->  alert( xhr.getResponseHeader("Content-Type") );<br>
+					3,说明：由于XMLHttpRequest会自动处理 cookie，将 cookie 从getAllResponseHeaders方法返回的响应头集合中过滤掉，
+					并且如果给getResponseHeader方法传递 "Set-Cookie" 或 "Set-Cookie2"，则返回 null。<br>
+				</p>
+			</div>
+			
+			<div>
+				<h3 class="text-primary">同步响应</h3>
+				open方法的第三个参数用来规定：脚本是以 同步方式 还是 异步方式 处理 HTTP 响应。
+				如果将false作为第三个参数传递给open方法，那么调用send方法将 阻塞 后续脚本的执行 直到 HTTP 请求完成。
+				在这种情况下，不再需要监听readystatechange事件，
+				因为send方法后面的代码一定会等到 HTTP 请求完成后再执行。<br>
+			</div>
+			 
+			 
+			 <pre style="background-color:black; color:white;">
+				 &lt;script &gt;
+				 var xhr = new XMLHttpRequest();
+				 
+				 // 指定 open 方法的第三个参数为 false
+				 xhr.open("GET", "/statics/demosource/demo_get_json.php", false);
+				 
+				 // send 方法的调用将阻塞后面代码的执行，直到此次 HTTP 请求完成
+				 xhr.send();
+				 
+				 // 不再需要监听 readystatechange 事件
+				 if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+				     oTime.innerText = JSON.parse(xhr.response).date;
+				 } else {
+				     // 如果请求不成功，就报错
+				     throw new Error(xhr.status);
+				 }
+				 
+				  &lt;/script &gt;
+			 </pre>
+			 
+			 <div>
+				 <h3 class="text-primary">abort 中止请求</h3>
+				 若 HTTP 请求的时间超出预期，可以调用XMLHttpRequest对象上的abort方法来中止 HTTP 请求。
+				 <pre style="background-color:black; color:white;">
+				 	&lt;script &gt;
+				 			var xhr = new XMLHttpRequest();
+				 			var timer = null;    // 用于存储定时器标识
+				 			
+				 			xhr.onreadystatechange = function () {
+				 			    if (xhr.readyState !== 4) return;
+				 			    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+				 			        clearTimeout(timer);    // 未超时则取消定时器
+				 			    }
+				 			};
+				 			
+				 			xhr.open("GET", "/statics/demosource/demo_get_json.php");
+				 			xhr.send();
+				 			
+				 			// 2秒后中止此次 GET 请求
+				 			timer = setTimeout(function(){
+				 			    xhr.abort();
+				 			}, 2000)
+								
+				    &lt;/script &gt;
+				 </pre>
+				 
+			 </div>
+		</div>
+	
+	</body>
+</html>

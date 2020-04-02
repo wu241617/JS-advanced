@@ -1,0 +1,132 @@
+body{
+	width:1405px;
+	height:1005px;
+	border:1px solid black;
+	border-width:thick;
+	margin:0px auto;
+	padding:0;
+}
+#head{
+	width:1403px;
+	height:100px;
+	border:1px solid whitesmoke;
+	overflow: hidden;
+	background-image: url(../img/2.png);
+	background-repeat: repeat;
+	margin: 0;
+	padding: 0;
+}
+
+#left-body{
+	width:700px;
+	height:900px;
+	float:left;
+	border:1px solid red;
+	margin: 0;
+	padding: 0;
+}
+#float1{
+	float:left;
+}
+#age{
+	width:198px;
+	height:195px;
+	background-image: url(../img/3.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 10px 10px 10px 0px;*/
+	padding: 0;
+	border:1px solid greenyellow;
+}
+#sex{
+	width:198px;
+	height:195px;
+	background-image:url(../img/4.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 10px 10px 10px 0px;*/
+	padding: 0;
+	border:1px solid greenyellow;
+}
+#tongji{
+	width:496px;
+	height:390px;
+	background-image:url(../img/5.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 0px 10px;*/
+	padding:0;
+	float:right;
+	border:1px solid greenyellow;
+}
+#num{
+	width:698px;
+	height:298px;
+	background-image:url(../img/6.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 10px;*/
+	padding: 0;
+	border:1px solid greenyellow;
+}
+#action{
+	width:698px;
+	height:204px;
+	background-image:url(../img/7.png);
+	background-repeat: repeat-y;
+	overflow: hidden;
+	/*margin: 10px;*/
+	padding: 0;
+	border:1px solid greenyellow;
+}
+
+#right-body{
+	width:700px;
+	height:900px;
+	float:left;
+	border:1px solid greenyellow;
+	margin: 0;
+	padding: 0;
+}
+#id1{
+	width:698px;
+	height:198px;
+	background-image: url(../img/8.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 10px 10px 10px 0px;*/
+	padding: 0;
+	border:1px solid red;
+}
+#id2{
+	width:397px;
+	height:198px;
+	background-image: url(../img/9.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 10px 10px 10px 0px;*/
+	padding: 0;
+	float:left;
+	border:1px solid red;
+}
+#id3{
+	width:297px;
+	height:198px;
+	background-image: url(../img/10.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 10px 10px 10px 0px;*/
+	padding: 0;
+	float:right;
+	border:1px solid red;
+}
+#id4{
+	width:698px;
+	height:498px;
+	background-image: url(../img/11.png);
+	background-repeat: repeat;
+	overflow: hidden;
+	/*margin: 10px 10px 10px 0px;*/
+	padding: 0;
+	border:1px solid red;
+}

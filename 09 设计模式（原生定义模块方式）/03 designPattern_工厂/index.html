@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>designPattern_工厂</title>
+		<style type = "text/css"></style>
+		
+	</head>
+	<body>
+		
+		<script type = "text/javascript">
+			/* 
+			工厂模式,批量创建某种类型数据
+			*/
+		   function Factory(){
+			   
+		   }
+		   Factory.create = function(type){
+			   switch(type){
+				   case "normal":
+				        return new Normal();
+				   case "gunCarrier":
+				        return new GunCarrier();
+				   case "strong":
+				        return new Strong();
+				   default:
+				        break;
+			   }
+		   }
+		   
+		   function Normal(){
+			   console.log("normal is created!");
+		   }
+		   
+		   function GunCarrier(){
+			   console.log("gunCarrier is created!");
+		   }
+		   
+		   function Strong(){
+			   console.log("Strong is created!");
+		   }
+		   
+		   var s1 = Factory.create("normal");
+		   
+		   for(var i = 0; i < 100; i++){
+			   Factory.create("strong");
+		   }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<h3 class="text-center text-primary">GET 请求的数据传递</h3>
+				GET 请求一般用于信息获取，它没有请求主体，而是使用 URL 传递参数（即：传递数据给后台）。<br>
+				<p>
+					GET 传递参数的方式，分两步：<br>
+					1,对所需发送的数据（具有名称和值）执行普通的 URL 编码，即：由一对对 "名称=值" 组成（称为：名/值对），
+					每一对之间用 "&"拼接，如 "name=value&name=value&...&name=value"；<br>
+					2,由于 名/值对 会附加在 URL 地址后面，因此在这串字符参数的最前面需要添加个 "?"，表示 URL 的 查询参数 开始。
+				</p>
+				
+				<pre style="background-color:black; color:white;">
+					&lt;script &gt;
+					// GET请求的后端接口
+					var url = "/statics/demosource/demo_get_json.php";
+					
+					// 获取用户输入的表单数据
+					var country = document.getElementById("country").value,
+					    city = document.getElementById("city").value;
+					
+					// 将需要传递的参数拼接为 "名称=值" 对的形式
+					var query = "country=" + country + "&city=" + city;
+					
+					// 在 query 前面添加个 "?"，再拼接后端接口
+					var queryURL = url + "?" + query;
+					
+					// 发起GET请求：使用拼接好的 queryURL
+					ajaxGet(queryURL);
+					&lt;/script &gt;
+				</pre>
+				<p>
+					说明：示例中，ajaxGet()是对 Ajax 的 GET 请求稍微封装了一下，目的是为了更好的展示 GET 传递参数的细节，
+					ajax_get()方法可在 "尝试一下" 中查看。
+				</p>
+			</div>
+			
+			<div>
+				<h3 class="text-primary">GET 请求的缓存问题</h3>
+				对于 GET 请求，请求的结果会被浏览器缓存，特别是在 IE 浏览器下。这时，如果 GET 请求的 URL 不变，
+				那么请求的结果就是浏览器的缓存（也就是上次 GET 请求的结果）。<br>
+				解决 GET 请求缓存问题的办法是：实时改变 GET 请求的 URL，只要 URL 不同，就不会取到浏览器的缓存结果。
+				具体做法是：在 URL 末尾添加时间戳参数。由于时间戳可以精确到毫秒，从而保证了每次发起 GET 请求的时间不同，
+				达到实时改变请求 URL 的目的。<br>
+				
+				<pre style="background-color:black; color:white;">
+					&lt;script &gt;
+					var url = "/statics/demosource/demo_get_json.php";
+					
+					// 在请求参数的最后附加时间戳参数 t
+					var query = "user=" + user + "&pwd=" + pwd + "&t=" + new Date().getTime();
+					
+					var queryURL = url + "?" + query;
+					// ajax_get为自己封装的请求对象，不是固定用法
+					ajax_get(queryURL);
+					&lt;/script &gt;
+				</pre>
+
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,54 @@
+//mixin
+@mixin font($family,$weight,$size){
+	font-family:$family;
+	font-weight:$weight;
+	font-size:$size;
+}
+
+a{
+	@include font("\5FAE\8F6E\96C5\9ED1",30px,bold);
+}
+//扩展
+.A{
+	color:red;
+	background-color:black;
+	margin:10px auto;
+	text-align:center;
+}
+.B{
+	@extend .A;
+	background-color:black;
+}
+//函数
+$count: 10;
+$designWidth: 640px;
+
+@function px2rem($px){
+	@return $px * $count / $designWidth *1rem;
+}
+
+div{
+	width:px2rem(100px);
+	height:px2rem(100px);
+}
+//表达式
+//SASS中的for循环
+@for $i form 1 through 72 {
+	.box div:nth-of-type(#{$i}){
+		transform:rotateY($i * 30deg);
+	}
+}
+
+//if else
+$someEvent = true;
+@if $someEvent{
+	p{
+		background-color:red;
+		color:blue;
+	}
+} @else{
+	p{
+		background-color:blue;
+		color:red;
+	}
+}

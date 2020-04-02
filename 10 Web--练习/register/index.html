@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>注册界面</title>
+		<link rel="stylesheet" href="css/register.css" type="text/css" />
+		<link href="//fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+		<script src="js/register.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+		<div id="div">
+				<div id="div0">
+					<b>注册界面：</b>
+				</div>
+			<b>设置账户登录信息：</b>
+			<div id="div1">
+				<form>
+					<label>*请输入用户名：</label><input type="text" id="username" onblur="checkUserName();" />
+					<span id="username1"></span><br />
+					<br />
+					<label>*密码:</label><input type="password" id="password" onblur="checkPassWord();" />
+					<span id="password1"></span><br />
+					<br />
+					<label>*再次输入密码:</label><input type="password" id="sure" onblur="checkSure();" />
+					<span id="sure1"></span><br />
+					<br />
+					<label>*请输入E-mail地址:</label><input type="text" id="email" onblur="checkEmail();" />
+					<span id="email1"></span><br />
+					<br />
+				</form>
+			</div>
+			<b>选择账户类型：</b>
+			<div id="div2">
+				<form>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span id="fw"><input type="radio" name="accountType" id="accountType1" onclick="checkchoose();">个人用户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</input>
+						<input type="radio" name="accountType" id="accountType2" onblur="checkChoose();">企业用户</input></span>
+					<span id="accountType"></span><br />
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span id="fw">省/市：<select id="province" onchange="alter(this.selectedIndex)"></select>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;市/区：<select id="city"></select></span></br>
+					<br />
+					<label>*联系人:</label><input type="text" id="people" onblur="checkPeople();" />
+					<span id="people1"></span><br />
+					<br />
+					<label>*QQ号码:</label><input type="text" id="QQ" onblur="checkQQ();" />
+					<span id="QQ1"></span><br />
+					<br />
+					<label>*手机号码:</label><input type="text" id="call" onblur="checkCall();" />
+					<span id="call1"></span><br />
+					<br />
+					<label>*验证码:</label><input type="text" id="sureword" onblur="checkSureword();" />
+					<img src="img/2.png" />
+					<span id="sureword1"></span><br />
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span id="fw"><input type="checkbox" id="argeen" onclick="checkArgeen();">我已经阅读并接受用户服务协议</input></span>
+					<span id="argeen1"></span><br />
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span id="fw"><input type="button" value="同意服务条款,确认注册" onclick="wancheng();" /></span></br>
+				</form>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

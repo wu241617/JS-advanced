@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>designPattern_策略</title>
+		<style type = "text/css"></style>
+	</head>
+	<body>
+		
+		<script type = "text/javascript">
+			/* 
+			设计模式-->策略模式
+			 */
+			function Strategy(){
+				
+			}
+			Strategy.prototype.tactics = function(){
+				console.log("普通策略！");
+			}
+			
+			function StrategyA(){
+				
+			}
+			StrategyA.prototype = Object(Strategy.prototype);
+			StrategyA.prototype.tactics = function(){
+				console.log("中路奇袭！");
+			}
+			
+			function StrategyB(){
+				
+			}
+			StrategyB.prototype = Object(Strategy.prototype);
+			StrategyB.prototype.tactics = function(){
+				console.log("猥琐发育，别浪！");
+			} 
+			
+			function StrategyC(){
+				
+			}
+			StrategyC.prototype = Object(Strategy.prototype);
+			StrategyC.prototype.tactics = function(){
+				console.log("偷塔成功！");
+			} 
+			
+			/* ================test============================ */
+			function Go2victory(stra){
+				this.strategy = stra;
+			}
+			
+			Go2victory.prototype.victory = function(){
+				 this.strategy.tactics();
+			}
+			
+			var v = new Go2victory(new StrategyC());
+			v.victory();
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 引入Bootstrap -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+                <!-- bootstrap的javascript插件--需要引用jQuery -->
+		<script src="bootstrap/js/jquery.min.js"></script>
+		
+		<!--包括所有已编译的插件-->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h3 class="text-center text-primary">JSON 的解析与序列化</h3>
+			JavaScript 内置的 JSON 对象
+			ECMAScript 5 定义了一个原生的 JSON 对象，可把 JavaScript 对象序列化为 JSON 字符串，
+			或把 JSON 字符串解析为原生的 JavaScript 值。<br>
+			JSON 对象的方法：<br>
+			<b>1,JSON.stringify()：用于序列化 JavaScript 对象，将其转换为 JSON 字符串；</b><br>
+			<b>2,JSON.parse()：用于解析 JSON 字符串，将其转换为 JavaScript 值。</b><br>
+			<p>
+				JSON 对象的兼容性：
+				支持 JSON 对象的浏览器有 IE8+、Chrome、Firefox 3.5+ 等，对于较早的浏览器（如 IE 7 及其以下），
+				可以引入 json2.js 做兼容处理。<br>
+				Tips：JSON 数据格式之所以能流行，另一个重要的原因就是，JSON 数据可以很方便的解析为 JavaScript 对象
+				（包括值类型与引用类型），供 JavaScript 脚本使用。
+			</p>
+			
+			<div>
+				<h3 class="text-primary">序列化一个 JavaScript 对象</h3>
+				<pre style="background-color:black;color:white;">
+					var obj = {
+					    name: "Alan",
+					    age: 21,
+					    child: {
+					        name: "Tim",
+					        age: 7
+					    }
+					};
+					
+					// 序列化 obj 对象，转换为 JSON 格式的字符串
+					var json = JSON.stringify(obj)
+				</pre>
+				
+			</div>
+			
+			<div>
+				<h3 class="text-primary">解析一个 JSON 格式的数据</h3>
+				
+				<pre style="background-color:black;color:white;">
+				var json = '{"name":"Alan","age":21,"child":{"name":"Tim","age":7}}';
+				
+				// json 数据本质上是字符串，无法直接访问某一属性
+				console.log(json.name);    // undefined
+				
+				// 解析 json，转换为原生的 JavaScript 对象
+				var obj = JSON.parse(json);
+				console.log(obj.name);    // 此时可以使用 JavaScript 方法访问某一属性
+				</pre>
+			</div>
+			
+			
+			<div style="margin:50px 0;">
+				<h3 class="text-primary">解析 JSON 字符串的其它方法</h3>
+				
+				1,方法一：使用 JavaScript 的eval()函数<br>
+				<code>var obj = eval("(" + json + ")");</code><br>
+				解析：因为eval()函数会将传入的字符串当作 JavaScript 代码执行，
+				为了防止 JavaScript 对象的花括号{}被误解析为 JavaScript 函数的花括号，需要对 JSON 字符串加上圆括号。<br>
+				
+				
+				2,方法二：巧妙使用 Function 构造函数<br>
+				<code>var obj = new Function("return (" + json + ")")();</code>
+				
+			</div>
+			
+		</div>
+	</body>
+</html>
