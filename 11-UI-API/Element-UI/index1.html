@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- import CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" type="text/css">
+		<style type="text/css">
+			 .el-carousel__item h3 {
+			    color: #475669;
+			    font-size: 14px;
+			    opacity: 0.75;
+			    line-height: 150px;
+			    margin: 0;
+			  }
+			
+			  .el-carousel__item:nth-child(2n) {
+			     background-color: #99a9bf;
+			  }
+			  
+			  .el-carousel__item:nth-child(2n+1) {
+			     background-color: #d3dce6;
+			  }
+		</style>
+		<!-- import Vue before Element -->
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<!-- import JavaScript -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			
+			<el-switch v-model="value" active-color="#13ce66" inactive-color="#ff4949">
+			</el-switch>
+			
+			<div class="block">
+				<span class="demonstration">带快捷选项</span>
+				<el-date-picker v-model="value2" type="datetime" placeholder="选择日期时间" align="right" :picker-options="pickerOptions">
+				</el-date-picker>
+			</div>
+			
+			<div class="block">
+			    <span class="demonstration">默认</span>
+			    <el-slider v-model="value1"></el-slider>
+			</div>
+			
+			 <div class="block">
+			    <span class="demonstration">默认 Hover 指示器触发</span>
+			    <el-carousel height="150px">
+			      <el-carousel-item v-for="item in datalist" :key="item">
+			        <h3 class="small"><img :src="item" style="width:100%"></h3>
+			      </el-carousel-item>
+			    </el-carousel>
+			  </div>
+			  <div class="block">
+			    <span class="demonstration">Click 指示器触发</span>
+			    <el-carousel trigger="click" height="150px">
+			      <el-carousel-item v-for="item in 4" :key="item">
+			        <h3 class="small">{{ item }}</h3>
+			      </el-carousel-item>
+			    </el-carousel>
+			  </div>
+			  
+		</div>
+
+
+		<script type="module">
+			new Vue({
+			  el:"#app",
+			  data() {
+			    return {
+			      value: true,
+				     pickerOptions: {
+				            shortcuts: [{
+				              text: '今天',
+				              onClick(picker) {
+				                picker.$emit('pick', new Date());
+				              }
+				            }, {
+				              text: '昨天',
+				              onClick(picker) {
+				                const date = new Date();
+				                date.setTime(date.getTime() - 3600 * 1000 * 24);
+				                picker.$emit('pick', date);
+				              }
+				            }, {
+				              text: '一周前',
+				              onClick(picker) {
+				                const date = new Date();
+				                date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+				                picker.$emit('pick', date);
+				              }
+				            }]
+				          },
+				          value2: '',
+						  value1: 0,
+						  datalist:["img/pic1.jpg","img/pic2.jpg","img/pic3.jpg","img/pic4.jpg","img/pic5.jpg","img/pic6.jpg","img/pic7.jpg","img/pic8.jpg"]
+			    }
+			  }
+		  });
+		</script>
+	</body>
+</html>
